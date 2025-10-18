@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪔 दीपावली - रोशनी का त्योहार 🪔</title>
+    <style>
+        /* Google Font for Hindi Text */
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+        /* Basic Styles */
+        body {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #2a1a04, #1a0f02);
+            color: #f5dcb8;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px solid #ff9933;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 153, 51, 0.5);
+        }
+
+        /* Header Styles */
+        h1, h2 {
+            text-align: center;
+            font-weight: bold;
+            color: #ffc966;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ff9933;
+        }
+
+        /* Paragraph and List Styles */
+        p {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ff9933;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        li:hover {
+            transform: scale(1.03);
+            background-color: rgba(255, 153, 51, 0.2);
+        }
+        
+        /* Animated Diya CSS */
+        .diya-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .diya {
+            width: 100px;
+            height: 50px;
+            background-color: #d4a373;
+            border-radius: 0 0 50px 50px;
+            position: relative;
+            border: 2px solid #a37e58;
+        }
+        .diya::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 104px;
+            height: 20px;
+            background-color: #a37e58;
+            border-radius: 50%;
+        }
+        .flame {
+            width: 20px;
+            height: 45px;
+            background-color: #ffc300;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%);
+            animation: flicker 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px #ffc300, 0 0 20px #ffc300, 0 0 40px #ff8c00;
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: translateX(-50%) scaleY(1) scaleX(1); }
+            50% { transform: translateX(-50%) scaleY(0.95) scaleX(1.05); }
+        }
+
+        /* Home Button Styles */
+        .home-button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff9933;
+            color: #1a0f02;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid #ffc966;
+            box-shadow: 0 4px 15px rgba(255, 153, 51, 0.4);
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #ffc966;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="diya-container">
+            <div class="diya">
+                <div class="flame"></div>
+            </div>
+        </div>
+
+        <h1>🪔 दीपावली 🪔</h1>
+        <p>यह बुराई पर अच्छाई की जीत का पर्व है, जिसे दीप जलाकर, घरों को सजाकर और परिवार-दोस्तों के साथ मिलकर मनाया जाता है।</p>
+
+        <h2>✨ महत्व और पृष्ठभूमि ✨</h2>
+        <ul>
+            <li>दीपावली को "दीपों का पर्व" भी कहते हैं, क्योंकि इस दिन 'दीपों की अवली' या पंक्ति सजाई जाती है।</li>
+            <li>यह अंधकार पर प्रकाश की विजय का प्रतीक है।</li>
+            <li>यह त्योहार भगवान राम के 14 साल के वनवास के बाद अयोध्या लौटने की खुशी में मनाया जाता है। 🏹</li>
+            <li>इसे दीपोत्सव भी कहा जाता है।</li>
+            <li>यह अधर्म पर धर्म और ज्ञान की विजय का भी प्रतीक है।</li>
+        </ul>
+
+        <h2>🙏 धार्मिक अनुष्ठान 🙏</h2>
+        <ul>
+            <li>दीपावली पर देवी लक्ष्मी और भगवान गणेश की विशेष पूजा-अर्चना की जाती है।</li>
+            <li>यह कार्तिक मास की अमावस्या को मनाया जाता है।</li>
+            <li>कई स्थानों पर, दिवाली के पांच दिनों के उत्सव में नरक चतुर्दशी, धनतेरस और भाई दूज जैसे त्योहार भी शामिल होते हैं।</li>
+            <li>छोटी दिवाली के दिन, नरकासुर को हराने वाले भगवान कृष्ण की विजय का जश्न मनाया जाता है।</li>
+        </ul>
+
+        <h2>🎉 सजावट और उत्सव 🎉</h2>
+        <ul>
+            <li>इस दिन लोग अपने घरों की साफ-सफाई करके उन्हें सजाते हैं। 🧹</li>
+            <li>घर और कार्यस्थलों को दीये, मोमबत्तियों और रंगीन झालरों से रोशन किया जाता है। 💡</li>
+            <li>रंग-बिरंगी सुंदर रंगोलियाँ बनाई जाती हैं।</li>
+            <li>रात में मिट्टी के दीये जलाकर अमावस्या की रात को रोशन किया जाता है।</li>
+            <li>नए कपड़े खरीदे और पहने जाते हैं। 👔👗</li>
+            <li>हर जगह आतिशबाजी की जाती है। 🎆</li>
+            <li>कई लोग पर्यावरण-अनुकूल दिवाली मनाने के लिए पटाखों के इस्तेमाल को कम कर रहे हैं। 🌍</li>
+            <li>मेलबोर्न जैसे शहरों में भी भारतीय समुदाय द्वारा इसे धूमधाम से मनाया जाता है।</li>
+        </ul>
+
+        <div class="home-button-container">
+            <a href="#" class="home-button">🏠 होम पर जाएं</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

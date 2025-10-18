@@ -1,0 +1,330 @@
+)<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दिवाली की शुभकामनाएं</title>
+    <style>
+        /* Google Font for Hindi */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 10px 20px; 
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #3b221a; /* Dark brown background */
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden; /* Only hide horizontal scrollbars */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 10px auto 50px auto; 
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .diwali-image {
+            width: 80%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 20px 5px #ffbf00, 0 0 30px 10px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ffc107;
+            margin: 10px 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .rgb-text {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #ffd700, #00ff00, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .diwali-greeting-text {
+            font-size: 1.5em;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #ffd700, #00ff00, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .name-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .name-input {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #ffc107;
+            background-color: #ffffff;
+            border-radius: 25px;
+            text-align: center;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 1.2em; 
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #ffd700, #00ff00, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .name-input::placeholder {
+            -webkit-text-fill-color: #555;
+            color: #555;
+            font-weight: normal; 
+        }
+
+        .share-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        
+        .share-button:hover {
+            transform: scale(1.05);
+        }
+
+        .share-button svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* --- NEW BUTTON STYLE --- */
+        .muhurat-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #ffc107; /* Golden Yellow */
+            color: #3b221a; /* Dark Brown Text */
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .muhurat-button:hover {
+            transform: scale(1.05);
+        }
+        /* --- END NEW STYLE --- */
+        
+        #personalized-greeting {
+            display: none;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid #ffc107;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+        }
+
+        /* --- Side Animation Styles --- */
+        .side-animation {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .side-animation.left {
+            left: 5px;
+        }
+        .side-animation.right {
+            right: 5px;
+        }
+        .particle {
+            position: absolute;
+            opacity: 0;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        .left .particle {
+            animation-name: animate-up;
+        }
+        .right .particle {
+            animation-name: animate-down;
+        }
+        @keyframes animate-up {
+            0% { transform: translateY(0); opacity: 0; top: 100%; }
+            10%, 90% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; top: 0%; }
+        }
+        @keyframes animate-down {
+            0% { transform: translateY(0); opacity: 0; top: 0%; }
+            10%, 90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; top: 100%; }
+        }
+        /* --- End of Side Animation Styles --- */
+
+    </style>
+</head>
+<body>
+
+    <canvas id="fireworks-canvas"></canvas>
+    
+    <div class="side-animation left"></div>
+    <div class="side-animation right"></div>
+
+    <div class="container">
+        
+        <h1>दीपों का त्यौहार</h1>
+        
+        <img src="laxmi.gif" alt="दिवाली की शुभकामनाएं" class="diwali-image">
+        
+        <div id="personalized-greeting">
+            <h1 id="sender-name-heading" class="rgb-text" style="font-size: 1.8em; margin-bottom: 0;"></h1>
+        </div>
+        
+        <div id="main-content">
+            <p class="diwali-greeting-text">आपको और आपके परिवार को दीपावली की हार्दिक शुभकामनाएँ!</p>
+            <div class="input-group">
+                <label for="name" class="name-label">आपका शुभ नाम:</label>
+                <input type="text" id="name" class="name-input" placeholder="यहाँ अपना नाम लिखें">
+            </div>
+             <button id="whatsapp-share-btn" class="share-button">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.55C8.75 21.33 10.37 21.8 12.04 21.8C17.5 21.8 21.95 17.35 21.95 11.9C21.95 6.45 17.5 2 12.04 2ZM17.46 15.59C17.21 16.23 16.06 16.88 15.42 16.96C14.86 17.03 14.16 17.04 13.59 16.86C12.87 16.64 11.75 16.23 10.45 15.01C8.81 13.46 7.81 11.54 7.59 11.1C7.38 10.66 6.83 9.87 6.83 9.1C6.83 8.34 7.23 7.97 7.45 7.78C7.68 7.58 7.99 7.51 8.24 7.51C8.4 7.51 8.55 7.53 8.69 7.54C8.96 7.58 9.11 8.26 9.21 8.38C9.44 8.7 10.03 9.68 10.09 9.79C10.15 9.91 10.12 10.08 9.97 10.26C9.82 10.44 9.71 10.56 9.57 10.73C9.46 10.88 9.35 11 9.54 11.3C9.73 11.61 10.21 12.26 10.89 12.89C11.77 13.72 12.55 14.03 12.85 14.16C13.15 14.28 13.31 14.24 13.45 14.08C13.6 13.91 13.94 13.46 14.12 13.2C14.3 12.95 14.49 12.9 14.73 13C14.97 13.1 16.03 13.64 16.26 13.76C16.49 13.88 16.63 13.93 16.7 14.03C16.78 14.13 16.78 14.61 16.61 15.03C16.44 15.45 17.46 15.59 17.46 15.59Z"></path></svg>
+                WhatsApp पर शेयर करे
+            </button>
+            
+            <a href="Deepak.HTML" class="muhurat-button">
+                Diwali muhurat dekhne ke liye touch Karen
+            </a>
+            </div>
+
+    </div>
+
+    <div id="banner-ad-container" style="position: fixed; bottom: 0; width: 100%; text-align: center;">
+        </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Fireworks Animation ---
+            const canvas = document.getElementById('fireworks-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            let particles = [], fireworks = [];
+            class Firework { constructor() { this.x = Math.random() * canvas.width; this.y = canvas.height; this.targetX = Math.random() * canvas.width; this.targetY = Math.random() * (canvas.height / 2); this.speed = 3; this.angle = Math.atan2(this.targetY - this.y, this.targetX - this.x); this.color = `hsl(${Math.random() * 360}, 100%, 50%)`; this.trail = []; } update() { this.trail.push({ x: this.x, y: this.y }); if (this.trail.length > 5) this.trail.shift(); const dx = this.targetX - this.x, dy = this.targetY - this.y, distance = Math.sqrt(dx * dx + dy * dy); if (distance < 10) { for (let i = 0; i < 50; i++) particles.push(new Particle(this.x, this.y, this.color)); return true; } else { this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed; this.speed *= 1.01; } return false; } draw() { ctx.beginPath(); ctx.moveTo(this.trail[0]?.x || this.x, this.trail[0]?.y || this.y); ctx.lineTo(this.x, this.y); ctx.strokeStyle = this.color; ctx.lineWidth = 2; ctx.stroke(); } }
+            class Particle { constructor(x, y, color) { this.x = x; this.y = y; this.color = color; this.angle = Math.random() * Math.PI * 2; this.speed = Math.random() * 5 + 1; this.friction = 0.97; this.gravity = 0.1; this.alpha = 1; this.decay = Math.random() * 0.03 + 0.01; } update() { this.speed *= this.friction; this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed + this.gravity; this.alpha -= this.decay; return this.alpha <= this.decay; } draw() { ctx.save(); ctx.globalAlpha = this.alpha; ctx.beginPath(); ctx.arc(this.x, this.y, 2, 0, Math.PI * 2, false); ctx.fillStyle = this.color; ctx.fill(); ctx.restore(); } }
+            function animate() { requestAnimationFrame(animate); ctx.fillStyle = 'rgba(59, 34, 26, 0.1)'; ctx.fillRect(0, 0, canvas.width, canvas.height); if (Math.random() < 0.08 && fireworks.length < 7) fireworks.push(new Firework()); fireworks = fireworks.filter(fw => { fw.draw(); return !fw.update(); }); particles = particles.filter(p => { p.draw(); return !p.update(); }); }
+            animate();
+            window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+            // --- Side Animation Logic ---
+            function createSideAnimation() {
+                const leftContainer = document.querySelector('.side-animation.left');
+                const rightContainer = document.querySelector('.side-animation.right');
+                const items = ['⭐', '✨', '🎈', '💖'];
+                const particleCount = 20;
+
+                for (let i = 0; i < particleCount; i++) {
+                    let leftParticle = document.createElement('span');
+                    leftParticle.className = 'particle';
+                    leftParticle.innerText = items[Math.floor(Math.random() * items.length)];
+                    leftParticle.style.left = `${Math.random() * 70}%`;
+                    leftParticle.style.fontSize = `${Math.random() * 15 + 10}px`;
+                    leftParticle.style.animationDuration = `${Math.random() * 5 + 7}s`;
+                    leftParticle.style.animationDelay = `${Math.random() * 7}s`;
+                    leftContainer.appendChild(leftParticle);
+
+                    let rightParticle = document.createElement('span');
+                    rightParticle.className = 'particle';
+                    rightParticle.innerText = items[Math.floor(Math.random() * items.length)];
+                    rightParticle.style.left = `${Math.random() * 70}%`;
+                    rightParticle.style.fontSize = `${Math.random() * 15 + 10}px`;
+                    rightParticle.style.animationDuration = `${Math.random() * 5 + 7}s`;
+                    rightParticle.style.animationDelay = `${Math.random() * 7}s`;
+                    rightContainer.appendChild(rightParticle);
+                }
+            }
+            createSideAnimation();
+            
+            // --- URL Personalization & Sharing Logic ---
+            const nameInput = document.getElementById('name');
+            const shareBtn = document.getElementById('whatsapp-share-btn');
+            const personalizedGreetingDiv = document.getElementById('personalized-greeting');
+            const senderNameHeading = document.getElementById('sender-name-heading');
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const senderName = urlParams.get('name');
+
+            if (senderName) {
+                senderNameHeading.textContent = `${decodeURIComponent(senderName)} की तरफ से`;
+                personalizedGreetingDiv.style.display = 'block';
+            }
+
+            shareBtn.addEventListener('click', function() {
+                const name = nameInput.value.trim();
+                if (name === '') {
+                    alert('कृपया अपना नाम दर्ज करें।');
+                    return;
+                }
+                const baseUrl = window.location.origin + window.location.pathname; 
+                const personalizedUrl = `${baseUrl}?name=${encodeURIComponent(name)}`;
+                const message = `✨ *${name}* की तरफ से आपको और आपके परिवार को दिवाली की हार्दिक शुभकामनाएँ! ✨\n\नीचे दिए गए लिंक पर क्लिक करके अपनी शुभकामनाएं प्राप्त करें 👇\n\n${personalizedUrl}`;
+                const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+    </script>
+
+</body>
+</html>

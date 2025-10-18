@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪔 दिवाली 2025 - शुभ मुहूर्त 🪔</title>
+    <style>
+        /* Google Font for Hindi Text */
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+        /* Basic Styles */
+        body {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #2a1a04, #1a0f02);
+            color: #f5dcb8;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .main-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 2px solid #ff9933;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 153, 51, 0.6);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header Styles */
+        h1, h2 {
+            text-align: center;
+            font-weight: bold;
+            color: #ffc966;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        /* Festival Card Styles */
+        .muhurat-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 6px solid #ffb703;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .muhurat-card:hover {
+            transform: translateY(-5px);
+            border-left-color: #fb8500;
+        }
+
+        .muhurat-card h2 {
+            font-size: 1.9em;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ff9933;
+        }
+
+        .muhurat-card p {
+            margin: 10px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+        }
+        
+        .muhurat-card p strong {
+            color: #ffc966;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        /* Diya and Flame CSS */
+        .diya {
+            width: 50px;
+            height: 25px;
+            background-color: #d4a373;
+            border-radius: 0 0 25px 25px;
+            position: relative;
+            border: 1px solid #a37e58;
+        }
+
+        .flame {
+            width: 12px;
+            height: 28px;
+            background-color: #ffc300;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%);
+            animation: flicker 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px #ffc300, 0 0 20px #ffc300, 0 0 30px #ff8c00;
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: translateX(-50%) scaleY(1) scaleX(1); }
+            50% { transform: translateX(-50%) scaleY(0.95) scaleX(1.05); }
+        }
+        
+        /* Sidebar for floating diyas */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            z-index: 1;
+        }
+        
+        .left-sidebar { left: 0; }
+        .right-sidebar { right: 0; }
+        
+        .diya-wrapper {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+        }
+        
+        @keyframes floatUp {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-100px); }
+        }
+
+        @keyframes floatDown {
+            from { transform: translateY(-100px); }
+            to { transform: translateY(100vh); }
+        }
+
+        .left-sidebar .diya-wrapper { animation: floatUp linear infinite; }
+        .right-sidebar .diya-wrapper { animation: floatDown linear infinite; }
+
+        /* --- NEW STYLES FOR BUTTONS --- */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ffb703;
+            color: #1a0f02;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid #ffc966;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: #fb8500;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        /* --- END OF NEW STYLES --- */
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar left-sidebar" id="left-diyas"></div>
+    <div class="sidebar right-sidebar" id="right-diyas"></div>
+    
+    <div class="main-container">
+        <h1>🪔 दिवाली 2025 के शुभ मुहूर्त 🪔</h1>
+
+        <div class="muhurat-card">
+            <h2>धनतेरस 🪙</h2>
+            <p><strong>दिन और तारीख:</strong> शनिवार, 18 अक्टूबर 2025</p>
+            <p><strong>पूजा का मुहूर्त:</strong> शाम 07:15 बजे से रात 08:19 बजे तक</p>
+            <p><strong>क्या करें:</strong> इस दिन सोना, चांदी या बर्तन खरीदना बहुत शुभ माना जाता है।</p>
+        </div>
+
+        <div class="muhurat-card">
+            <h2>दिवाली (लक्ष्मी पूजन) 🙏</h2>
+            <p><strong>दिन और तारीख:</strong> सोमवार, 20 अक्टूबर 2025</p>
+            <p><strong>पूजा का मुहूर्त:</strong> शाम 07:08 बजे से रात 08:18 बजे तक</p>
+            <p><strong>विशेष:</strong> यह दिवाली का मुख्य दिन है। इस समय में देवी लक्ष्मी और भगवान गणेश की पूजा करें।</p>
+        </div>
+        
+        <div class="muhurat-card">
+            <h2>गोवर्धन पूजा 🐄</h2>
+            <p><strong>दिन और तारीख:</strong> बुधवार, 22 अक्टूबर 2025</p>
+            <p><strong>सुबह का मुहूर्त:</strong> सुबह 06:26 बजे से सुबह 08:42 बजे तक</p>
+            <p><strong>क्या करें:</strong> इस दिन भगवान कृष्ण और गोवर्धन पर्वत की पूजा की जाती है।</p>
+        </div>
+        
+        <div class="muhurat-card">
+            <h2>भाई दूज 👫</h2>
+            <p><strong>दिन और तारीख:</strong> गुरुवार, 23 अक्टूबर 2025</p>
+            <p><strong>टीका मुहूर्त:</strong> दोपहर 01:13 बजे से दोपहर 03:28 बजे तक</p>
+            <p><strong>क्या करें:</strong> बहनें अपने भाई के माथे पर टीका लगाकर उनकी लंबी उम्र की कामना करती हैं।</p>
+        </div>
+
+        <div class="navigation-buttons">
+            <a onclick="window.history.back()" class="nav-button">⬅️ वापस जाएं</a>
+            <a href="deepaksuman.html" class="nav-button">दिवाली शायरी देखें 📜</a>
+        </div>
+        </div>
+
+    <script>
+        function createDiyas() {
+            const leftSidebar = document.getElementById('left-diyas');
+            const rightSidebar = document.getElementById('right-diyas');
+            const numDiyas = 8;
+
+            for (let i = 0; i < numDiyas; i++) {
+                const leftWrapper = document.createElement('div');
+                leftWrapper.className = 'diya-wrapper';
+                leftWrapper.innerHTML = '<div class="diya"><div class="flame"></div></div>';
+                leftWrapper.style.left = `${Math.random() * 70}%`;
+                leftWrapper.style.animationDuration = `${15 + Math.random() * 10}s`;
+                leftWrapper.style.animationDelay = `${Math.random() * 15}s`;
+                leftSidebar.appendChild(leftWrapper);
+
+                const rightWrapper = document.createElement('div');
+                rightWrapper.className = 'diya-wrapper';
+                rightWrapper.innerHTML = '<div class="diya"><div class="flame"></div></div>';
+                rightWrapper.style.left = `${Math.random() * 70}%`;
+                rightWrapper.style.animationDuration = `${15 + Math.random() * 10}s`;
+                rightWrapper.style.animationDelay = `${Math.random() * 15}s`;
+                rightSidebar.appendChild(rightWrapper);
+            }
+        }
+        
+        window.onload = createDiyas;
+    </script>
+</body>
+</html>
